@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class MaxHeapClient {
 
-	public static final int HEAP_SIZE = 10;
+	public static final int HEAP_SIZE = 100;
 	public static void main(String[] args) {
 		
 		MaxHeapClient maxHeapClient = new MaxHeapClient();

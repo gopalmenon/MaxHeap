@@ -100,22 +100,47 @@ public class MaxHeap {
 		return returnValue.toString();
 	}
 	
+	//Sort the numbers in the max heap
 	public void heapSort() {
 		
 		this.validMaxheap = false;
 		int temp = 0;
 		int savedHeapSize = this.heapSize;
 		for (int index = this.heapSize - 1; index > 0; --index) {
-		
+			
+			//Put the maximum value at the end and the last value in the beginning
 			temp = this.internalRepresentation[0];
 			this.internalRepresentation[0] = this.internalRepresentation[this.heapSize - 1];
 			this.internalRepresentation[this.heapSize - 1] = temp;
+			
+			//Reduce the size of the heap
 			--this.heapSize;
+			
 			maxHeapify(0);
 			
 		}
 		
 		this.heapSize = savedHeapSize;
+	}
+	
+	public int getHeapMaximum() {
+		return this.internalRepresentation[0];
+	}
+	
+	public int extractMaxValue() throws Exception {
+		
+		if (this.heapSize < 0) {
+			throw new Exception("Undeflow!!!");
+		}
+		
+		int maxValue = this.internalRepresentation[0];
+		this.internalRepresentation[0] = this.internalRepresentation[this.heapSize - 1];
+		--this.heapSize;
+		
+		maxHeapify(0);
+		
+		return maxValue;
+		
 	}
 
 }
